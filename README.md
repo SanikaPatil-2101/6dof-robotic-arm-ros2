@@ -62,21 +62,21 @@ The robotic arm follows an open kinematic chain terminating in a closed-loop par
 
 ```mermaid
 flowchart TD
-    W["world (Fixed Origin)"] -->|world_to_base [fixed]| B["base_link (Base.stl)"]
-    B -->|joint_1 [revolute Z]| S["shoulder_link (Shoulder.stl)"]
-    S -->|joint_2 [revolute Z]| E["elbow_link (Elbow.stl)"]
-    E -->|joint_3 [revolute Z]| A["arm_link (arm.stl)"]
-    A -->|joint_4 [revolute X]| WR["wrist_link (Wrist_.stl)"]
-    WR -->|joint_5 [revolute X]| G["gripper_link (gripper_base.stl)"]
-    G -->|tcp_joint [fixed]| TCP["tcp_link (Tool Center Point)"]
+    W["world (Fixed Origin)"] -->|"world_to_base (fixed)"| B["base_link (Base.stl)"]
+    B -->|"joint_1 (revolute Z)"| S["shoulder_link (Shoulder.stl)"]
+    S -->|"joint_2 (revolute Z)"| E["elbow_link (Elbow.stl)"]
+    E -->|"joint_3 (revolute Z)"| A["arm_link (arm.stl)"]
+    A -->|"joint_4 (revolute X)"| WR["wrist_link (Wrist_.stl)"]
+    WR -->|"joint_5 (revolute X)"| G["gripper_link (gripper_base.stl)"]
+    G -->|"tcp_joint (fixed)"| TCP["tcp_link (Tool Center Point)"]
     
     subgraph Parallel_Gripper_Mechanism ["4-Bar Parallel Linkage & 24T Spur Gears"]
-        G -->|gripper_joint [revolute Z - MASTER]| GLG["gripper_left_gear_link (Left 24T Gear)"]
-        GLG -->|gripper_left_finger_joint [mimic -1.0]| GLF["gripper_left_finger_link (Left Parallel Jaw)"]
-        G -->|gripper_left_inner_joint [mimic +1.0]| GLI["gripper_left_inner_link (Left Coupler Link)"]
-        G -->|gripper_right_gear_joint [mimic -1.0]| GRG["gripper_right_gear_link (Right 24T Gear)"]
-        GRG -->|gripper_right_finger_joint [mimic +1.0]| GRF["gripper_right_finger_link (Right Parallel Jaw)"]
-        G -->|gripper_right_inner_joint [mimic -1.0]| GRI["gripper_right_inner_link (Right Coupler Link)"]
+        G -->|"gripper_joint (revolute Z - MASTER)"| GLG["gripper_left_gear_link (Left 24T Gear)"]
+        GLG -->|"gripper_left_finger_joint (mimic -1.0)"| GLF["gripper_left_finger_link (Left Parallel Jaw)"]
+        G -->|"gripper_left_inner_joint (mimic +1.0)"| GLI["gripper_left_inner_link (Left Coupler Link)"]
+        G -->|"gripper_right_gear_joint (mimic -1.0)"| GRG["gripper_right_gear_link (Right 24T Gear)"]
+        GRG -->|"gripper_right_finger_joint (mimic +1.0)"| GRF["gripper_right_finger_link (Right Parallel Jaw)"]
+        G -->|"gripper_right_inner_joint (mimic -1.0)"| GRI["gripper_right_inner_link (Right Coupler Link)"]
     end
 ```
 
